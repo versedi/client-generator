@@ -25,7 +25,9 @@ export default function generators(generator = "react") {
     case "typescript":
       return wrap(TypescriptInterfaceGenerator);
     case "vue":
-      return wrap(VueGenerator);
+      return wrap(VueGenerator);   
+    case "vue-ts":
+      return wrap(VueTypeScriptGenerator);
     case "vuetify":
       return wrap(VuetifyGenerator);
     case "quasar":
