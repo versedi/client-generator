@@ -4,6 +4,7 @@ import ReactGenerator from "./generators/ReactGenerator";
 import ReactNativeGenerator from "./generators/ReactNativeGenerator";
 import TypescriptInterfaceGenerator from "./generators/TypescriptInterfaceGenerator";
 import VueGenerator from "./generators/VueGenerator";
+import VueTypeScriptGenerator from "./generators/VueTypeScriptGenerator";
 import VuetifyGenerator from "./generators/VuetifyGenerator";
 import QuasarGenerator from "./generators/QuasarGenerator";
 
