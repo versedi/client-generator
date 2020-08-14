@@ -26,55 +26,50 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import {
+  State,
+  Getter,
+  Action,
+  Mutation,
+  namespace
+} from 'vuex-class';
 import { createHelpers } from 'vuex-map-fields';
 import { mapActions } from 'vuex';
 import {{{titleUcFirst}}}Form from './Form';
+import {{{title}}} from './/interfaces/{{{title}}}';
 
-const { mapFields } = createHelpers({
-    getterType: '{{{lc}}}/create/getField',
-    mutationType: '{{{lc}}}/create/updateField',
-});
+@Component({
+name: {{{titleUcFirst}}}Create,
+})
+export default class {{{titleUcFirst}}}Create extends Vue {
+  created: Boolean = false;
+  item: {{{title}}} = null;
 
-export default {
   components: {
     {{{titleUcFirst}}}Form,
   },
 
-  data () {
-    return {
-      item: {},
-    };
-  },
 
-  computed: {
-    ...mapFields([
-      'error',
-      'isLoading',
-      'created',
-      'violations',
-    ]),
-  },
+  @Action('create{{{title}}}')
+  public new{{{titleUcFirst}}}!: void;
 
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function(created) {
-      if (!created) {
+  @Watch('created')
+  created: function(created) {
+    if (!created) {
         return;
-      }
-
-      this.$router.push({ name: '{{{titleUcFirst}}}Update', params: { id: created['@id'] } });
     }
+
+    this.$router.push({ name: '{{{titleUcFirst}}}Update', params: { id: created['@id'] } });
+  }
+
+
+
+  create{{{titleUcFirst}}} (): void {
+
   },
 
-  methods: {
-    ...mapActions('{{{lc}}}/create', [
-      'create',
-    ]),
-
-    onSendForm () {
-      this.create(this.item);
-    },
-  },
 };
 </script>
